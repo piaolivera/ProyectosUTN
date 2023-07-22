@@ -70,4 +70,4 @@ let gerente2 = new Gerente ("Jose", 200, "Sistemas");
 console.log(gerente2.toString());
 
 let desarrolador1 = new Desarrollador('Lucas', 500, "JavaScript");
-console.log(desarrolador1.toString());
+console.log(desarrolador1.toString()); // 

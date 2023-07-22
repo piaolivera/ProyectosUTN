@@ -5,9 +5,12 @@ agregue una propiedad adicional "lenguaje". Implementa métodos
 para obtener detalles sobre cada tipo de empleado, como el nombre, salario, departamento o lenguaje, según corresponda.*/
 
 class Empleado {
+    static contadorEmpleado = 0;
+
     constructor (nombre, salario){
         this._nombre = nombre;
         this._salario = salario;
+        this._idEmpleado = ++Empleado.contadorEmpleado;
     }
     get nombre (){
         return this._nombre;
@@ -22,14 +25,14 @@ class Empleado {
         this._salario = salario;
     }
     toString(){
-            return "Nombre: " +this._nombre + ", salario: "+ this._salario;
+            return  "ID: "+this._idEmpleado +"Nombre: " +this._nombre + ", salario: "+ this._salario;
         }
     }
 
 
 class Gerente extends Empleado{
-    constructor (nombre, salario, departamento){
-        super(nombre, salario);
+    constructor (idEmpleado, nombre, salario, departamento){
+        super(idEmpleado, nombre, salario);
         this._departamento = departamento;
     }
     get departamento (){
@@ -39,7 +42,7 @@ class Gerente extends Empleado{
         this._departamento = departamento;
    }
    toString(){
-    return "Nombre: " +this._nombre + ", salario: "+ this._salario + ", Departamento: " +this._departamento;
+    return   "ID: "+this._idEmpleado +", Nombre: " +this._nombre + ", salario: "+ this._salario + ", Departamento: " +this._departamento;
 }
 
 }
@@ -62,7 +65,9 @@ class Desarrollador extends Empleado {
 
 
 let gerente1 = new Gerente ("Juan", 500, "Sistemas");
-console.log(gerente1.toString())
+console.log(gerente1.toString());
+let gerente2 = new Gerente ("Jose", 200, "Sistemas");
+console.log(gerente2.toString());
 
 let desarrolador1 = new Desarrollador('Lucas', 500, "JavaScript");
 console.log(desarrolador1.toString());

@@ -1,0 +1,29 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>40</x><y>40</y><w>210</w><h>230</h></coordinates><panel_attributes>Conexión
+--
+_-DATABASE: String_
+_-USERNAME: string_
+_-PASSWORD: string_
+_-DB_PORT: String_
+_-HOST: String_
+_-MIN_CON: int_
+_-MAX_CON: int_
+_-pool_ POOL_
+--
+_+obtenerPool(cls): Pool_
+_+obtenerConexion(cls): Connection_
+_+liberarConexion(cls, conexion)_
+_+cerrarConexion(cls)_
+--
+Responsibilidades
+-- Resp1
+*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>370</x><y>50</y><w>210</w><h>190</h></coordinates><panel_attributes>Usuario
+--
+-id: Long
+_-ClassAttribute: Long_
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element></diagram>

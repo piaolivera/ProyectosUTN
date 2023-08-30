@@ -49,14 +49,12 @@ public class SistemaEstudianteApp {
             case 2 -> { // Buscar estudiante por id
                 System.out.println("Introduce el id_estudiante a buscar: ");
                 var idEstudiante = Integer.parseInt(consola.nextLine());
-                var estudiante = new EstudianteDAO(idEstudiante);
+                var estudiante = new Estudiante(idEstudiante);
                 var encontrado = estudianteDAO.buscarEstudiantePorId(estudiante);
                 if (encontrado)
                     System.out.println("Estudiante encontrado: "+estudiante);
                 else
                     System.out.println("Estudiante NO encontrado: "+estudiante);
-                break;
-
             }
             case 3 ->{ //Agregar estudiante
                 System.out.println("Agregar estudiante: ");
@@ -82,9 +80,39 @@ public class SistemaEstudianteApp {
                 var idEstudiante = Integer.parseInt(consola.nextLine());
                 System.out.println("Nombre: ");
                 var nombre = consola.nextLine();
+                System.out.println("Apellido: ");
+                var apellido = consola.nextLine();
+                System.out.println("telefono: ");
+                var telefono = consola.nextLine();
+                System.out.println("E-mail: ");
+                var email = consola.nextLine();
+                //Crear objeto estudiante a modificar
+                var estudiante = new Estudiante(idEstudiante, nombre, apellido, telefono, email);
+                var modificado = estudianteDAO.modificarEstudiante(estudiante);
+                if (modificado)
+                    System.out.println("Estudiante modificado: "+estudiante);
+                else
+                    System.out.println("Estudiante NO modificado: "+estudiante);
+            }
+            case 5-> { //Elimina un estudiante
+                System.out.println("Eliminar estudiante: ");
+                System.out.println("Id estudiante: ");
+                var idEstudiante = Integer.parseInt(consola.nextLine());
+                var estudiante = new Estudiante(idEstudiante);
+                var eliminado = estudianteDAO.eliminarEstudiante(estudiante);
+                if(eliminado)
+                    System.out.println("Estudiante eliminado: "+estudiante);
+                else
+                    System.out.println("Estudiante NO eliminado: "+estudiante);
+            }
+            case 6 ->{ //salir
+                System.out.println("Hasta pronto!! ");
+                salir = true;
 
             }
+            default -> System.out.println("Opción no reconocida, ingrese otra opción");
         }
+        return salir;
     }
 
 
